@@ -1,62 +1,15 @@
-<html><head><base href=""><style>
-.mindmap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
     font-family: Arial, sans-serif;
-    background: #f0f5ff;
+    margin: 0;
     padding: 20px;
-    position: relative;
-}
-
-.data-table {
-    width: 100%;
-    max-width: 1200px;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background: white;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease-out;
-}
-
-.data-table.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.data-table th {
-    background: #2c3e50;
-    color: white;
-    padding: 15px;
-    text-align: left;
-    font-weight: bold;
-}
-
-.data-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #eee;
-}
-
-.data-table tr:hover {
-    background-color: #f5f8ff;
-}
-
-.data-table tr:last-child td {
-    border-bottom: none;
-}
-
-.statistic {
-    color: #3498db;
-    font-weight: bold;
+    background-color: #f5f5f5;
 }
 
 .container {
-    padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -65,155 +18,244 @@ h1 {
     color: #2c3e50;
     text-align: center;
     margin-bottom: 30px;
-    font-size: 2em;
 }
 
-.btn-show {
-    display: block;
-    margin: 20px auto;
-    padding: 12px 24px;
-    background: #2c3e50;
+.table-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #2c3e50;
     color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    font-weight: bold;
 }
 
-.btn-show:hover {
-    background: #3498db;
+tr:hover {
+    background-color: #f8f9fa;
 }
 
-.table-wrapper {
-    display: none;
+.stat {
+    color: #2980b9;
+    font-weight: bold;
 }
 
-.table-wrapper.visible {
-    display: block;
-    animation: fadeIn 1s ease-out;
+tr:nth-child(even) {
+    background-color: #f8f9fa;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.categoria {
+    font-weight: bold;
+    color: #34495e;
+    width: 200px;
 }
 
-/* Make table rows initially invisible */
-.data-table tr {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-/* Show rows when visible class is added */
-.data-table tr.visible {
-    opacity: 1;
+.subcategoria {
+    font-style: italic;
+    color: #7f8c8d;
+    padding-left: 20px;
 }
 </style>
 </head>
 <body>
 <div class="container">
-    <h1>CARACTERÍSTICAS DEL DESEMPLEO JUVENIL EN MÉXICO</h1>
-    <button class="btn-show" onclick="showTable()">Ver Tabla</button>
-    <div class="table-wrapper">
-        <table class="data-table">
+    <h1>Características Detalladas del Desempleo Juvenil en México</h1>
+    <div class="table-container">
+        <table>
             <thead>
                 <tr>
-                    <th>Característica</th>
-                    <th>Descripción</th>
+                    <th>Categoría</th>
+                    <th>Descripción y Estadísticas</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Tasa de Desempleo</td>
-                    <td>Tasa juvenil (15-24 años): <span class="statistic">14,1%</span><br>
-                        Tasa general: <span class="statistic">3,4%</span></td>
+                    <td class="categoria">Tasa de Desempleo</td>
+                    <td>
+                        Tasa juvenil (15-24 años): <span class="stat">14.1%</span><br>
+                        Tasa general: <span class="stat">3.4%</span> (2022)<br>
+                        <div class="subcategoria">Comparación regional:</div>
+                        - Por encima del promedio latinoamericano (<span class="stat">12.8%</span>)<br>
+                        - Mayor concentración en zonas urbanas (<span class="stat">16.2%</span>)
+                    </td>
                 </tr>
                 <tr>
-                    <td>Edad</td>
-                    <td><span class="statistic">71,1%</span> de los desempleados tienen entre 15-24 años</td>
+                    <td class="categoria">Edad</td>
+                    <td>
+                        <span class="stat">71.1%</span> de los desempleados tienen entre 15 y 24 años<br>
+                        Distribución por subgrupos:<br>
+                        - 15-19 años: <span class="stat">32.3%</span><br>
+                        - 20-24 años: <span class="stat">38.8%</span><br>
+                        Mayor vulnerabilidad en el grupo de 18-21 años que busca primer empleo
+                    </td>
                 </tr>
                 <tr>
-                    <td>Género</td>
-                    <td>Mujeres jóvenes: <span class="statistic">16,3%</span><br>
-                        Hombres jóvenes: <span class="statistic">12,3%</span></td>
+                    <td class="categoria">Género</td>
+                    <td>
+                        Mujeres jóvenes: <span class="stat">16.3%</span><br>
+                        Hombres jóvenes: <span class="stat">12.3%</span><br>
+                        Factores adicionales:<br>
+                        - Brecha salarial de género: <span class="stat">15.6%</span> en primer empleo<br>
+                        - Mayor tasa de abandono laboral en mujeres por responsabilidades familiares
+                    </td>
                 </tr>
                 <tr>
-                    <td>Nivel de Educación</td>
-                    <td><span class="statistic">63,1%</span> tienen educación secundaria o superior</td>
+                    <td class="categoria">Nivel de Educación</td>
+                    <td>
+                        <span class="stat">63.1%</span> tienen educación secundaria o superior<br>
+                        Desglose por nivel educativo:<br>
+                        - Educación superior: <span class="stat">28.4%</span><br>
+                        - Educación media superior: <span class="stat">34.7%</span><br>
+                        - Educación básica: <span class="stat">36.9%</span><br>
+                        Tiempo promedio de búsqueda de empleo:<br>
+                        - Universitarios: 6 meses<br>
+                        - Educación media: 4 meses
+                    </td>
                 </tr>
                 <tr>
-                    <td>Experiencia Laboral</td>
-                    <td><span class="statistic">55,1%</span> no tienen experiencia laboral</td>
+                    <td class="categoria">Experiencia Laboral</td>
+                    <td>
+                        <span class="stat">55.1%</span> no tienen experiencia laboral previa<br>
+                        Barreras principales:<br>
+                        - Requisitos excesivos de experiencia en empleos entry-level<br>
+                        - Falta de programas de primer empleo<br>
+                        - Limitadas oportunidades de prácticas profesionales
+                    </td>
                 </tr>
                 <tr>
-                    <td>Sector Económico</td>
-                    <td><span class="statistic">63,4%</span> buscan empleo en el sector terciario</td>
+                    <td class="categoria">Sector Económico</td>
+                    <td>
+                        <span class="stat">63.4%</span> buscan empleo en el sector terciario<br>
+                        Distribución por sectores:<br>
+                        - Comercio y servicios: <span class="stat">63.4%</span><br>
+                        - Industria: <span class="stat">24.7%</span><br>
+                        - Sector primario: <span class="stat">11.9%</span><br>
+                        Sectores emergentes con mayor demanda:<br>
+                        - Tecnología de la información<br>
+                        - Comercio electrónico<br>
+                        - Servicios financieros digitales
+                    </td>
                 </tr>
                 <tr>
-                    <td>Regiones más Afectadas</td>
-                    <td>Península de Yucatán: <span class="statistic">18,1%</span><br>
-                        Golfo de México: <span class="statistic">16,4%</span><br>
-                        Pacífico Sur: <span class="statistic">15,6%</span></td>
+                    <td class="categoria">Regiones</td>
+                    <td>
+                        Tasas más altas:<br>
+                        - Península de Yucatán: <span class="stat">18.1%</span><br>
+                        - Golfo de México: <span class="stat">16.4%</span><br>
+                        - Pacífico Sur: <span class="stat">15.6%</span><br>
+                        Factores regionales:<br>
+                        - Desarrollo económico desigual<br>
+                        - Concentración de oportunidades en zonas urbanas<br>
+                        - Variación en calidad educativa por región
+                    </td>
                 </tr>
                 <tr>
-                    <td>Sobrecalificación</td>
-                    <td>Alto nivel de sobrecalificación que lleva a empleos mal remunerados o informales</td>
+                    <td class="categoria">Sobrecalificación</td>
+                    <td>
+                        Impacto en el mercado laboral:<br>
+                        - <span class="stat">35%</span> de jóvenes profesionistas en trabajos no relacionados con su formación<br>
+                        - Salarios promedio <span class="stat">40%</span> menores a lo esperado por nivel educativo<br>
+                        - Alta rotación laboral en empleos no acordes al nivel de estudios<br>
+                        Consecuencias:<br>
+                        - Frustración profesional<br>
+                        - Pérdida de habilidades especializadas<br>
+                        - Desvalorización de la educación superior
+                    </td>
                 </tr>
                 <tr>
-                    <td>Sector Informal</td>
-                    <td>Alta proporción trabaja en economía informal, sin seguridad social ni derechos laborales</td>
+                    <td class="categoria">Sector Informal</td>
+                    <td>
+                        Estadísticas clave:<br>
+                        - <span class="stat">60%</span> de jóvenes en su primer empleo ingresan al sector informal<br>
+                        - Duración promedio en la informalidad: 2.5 años<br>
+                        - Salarios <span class="stat">45%</span> menores al sector formal<br>
+                        Impacto a largo plazo:<br>
+                        - Sin acceso a seguridad social<br>
+                        - Sin cotización para pensiones<br>
+                        - Dificultad para transición al sector formal
+                    </td>
                 </tr>
                 <tr>
-                    <td>Emprendimiento</td>
-                    <td>Muchos recurren al emprendimiento forzado sin recursos o capacitación adecuada</td>
+                    <td class="categoria">Emprendimiento</td>
+                    <td>
+                        Estadísticas de emprendimiento juvenil:<br>
+                        - <span class="stat">23%</span> inician por necesidad<br>
+                        - <span class="stat">45%</span> fracasan en el primer año<br>
+                        Principales obstáculos:<br>
+                        - Acceso limitado a financiamiento<br>
+                        - Falta de mentorías y capacitación<br>
+                        - Carga regulatoria y fiscal
+                    </td>
                 </tr>
                 <tr>
-                    <td>Impacto Psicosocial</td>
-                    <td>Efectos negativos: frustración, baja autoestima y migración</td>
+                    <td class="categoria">Impacto Psicosocial</td>
+                    <td>
+                        Efectos documentados:<br>
+                        - <span class="stat">45%</span> reportan síntomas de ansiedad<br>
+                        - <span class="stat">38%</span> muestran signos de depresión<br>
+                        - <span class="stat">28%</span> consideran migrar a otras ciudades o países<br>
+                        Impacto en el desarrollo personal:<br>
+                        - Retraso en independencia económica<br>
+                        - Postergación de planes familiares<br>
+                        - Pérdida de confianza profesional
+                    </td>
                 </tr>
                 <tr>
-                    <td>Programas Gubernamentales</td>
-                    <td>Iniciativas como "Jóvenes Construyendo el Futuro" con cobertura limitada</td>
+                    <td class="categoria">Tecnología</td>
+                    <td>
+                        Brechas digitales:<br>
+                        - <span class="stat">42%</span> carecen de habilidades digitales avanzadas<br>
+                        - <span class="stat">65%</span> no tienen certificaciones tecnológicas<br>
+                        Demanda de habilidades:<br>
+                        - Programación y desarrollo web<br>
+                        - Análisis de datos<br>
+                        - Marketing digital<br>
+                        - Gestión de redes sociales
+                    </td>
                 </tr>
                 <tr>
-                    <td>Tecnología</td>
-                    <td>Brecha en habilidades digitales afecta competitividad en sectores emergentes</td>
+                    <td class="categoria">Crisis Económica</td>
+                    <td>
+                        Impacto de COVID-19:<br>
+                        - Aumento del desempleo juvenil en <span class="stat">5.3%</span><br>
+                        - <span class="stat">38%</span> de empleos juveniles perdidos<br>
+                        - Recuperación más lenta que otros grupos de edad<br>
+                        Sectores más afectados:<br>
+                        - Turismo y hospitalidad<br>
+                        - Comercio minorista<br>
+                        - Servicios personales
+                    </td>
                 </tr>
                 <tr>
-                    <td>Crisis Económica</td>
-                    <td>COVID-19 afectó severamente sectores que emplean jóvenes</td>
-                </tr>
-                <tr>
-                    <td>Políticas Públicas</td>
-                    <td>Implementación de programas de capacitación, becas y apoyo empresarial</td>
+                    <td class="categoria">Políticas Públicas</td>
+                    <td>
+                        Programas actuales:<br>
+                        - Jóvenes Construyendo el Futuro: <span class="stat">900,000</span> beneficiarios<br>
+                        - Becas de capacitación: <span class="stat">250,000</span> beneficiarios<br>
+                        - Apoyos a emprendedores jóvenes: <span class="stat">150,000</span> beneficiarios<br>
+                        Áreas de oportunidad:<br>
+                        - Mayor vinculación empresa-academia<br>
+                        - Incentivos fiscales para contratación juvenil<br>
+                        - Programas de mentoría y desarrollo profesional
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
-
-<script>
-function showTable() {
-    const tableWrapper = document.querySelector('.table-wrapper');
-    const table = document.querySelector('.data-table');
-    const rows = table.getElementsByTagName('tr');
-    
-    // Show the table wrapper first
-    tableWrapper.classList.add('visible');
-    
-    // Animate each row with a delay
-    Array.from(rows).forEach((row, index) => {
-        setTimeout(() => {
-            row.classList.add('visible');
-        }, index * 100);
-    });
-}
-</script>
-</body></html>
+</body>
+</html>
